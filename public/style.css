@@ -1,0 +1,134 @@
+body{
+
+    background: #232526;  
+    font-family: Inter, sans-serif;
+}
+/*HEADER*/
+
+/*INPUT STYLE*/
+
+#search-container div{
+    display: flex;
+    align-items: center;
+}
+
+#search-container div img{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    z-index: 10;
+    position: relative;
+    left: 14%;
+}
+#search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+#search-input {
+    padding: 10px 15px;
+    padding-left: 50px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 250px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#search-input:focus {
+    border-color: #ff7f50; /* Highlight color when focused */
+    transform: scale(1.04);
+    box-shadow: 0 0 10px rgba(255, 127, 80, 0.3); /* Subtle glow effect */
+}
+
+/* Button styling */
+#search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #FF512F;  
+    background: -webkit-linear-gradient(to left, #DD2476, #FF512F);  
+    background: linear-gradient(to left, #DD2476, #FF512F); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#search-button:hover {
+    background-color: #e85a3e; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+#search-button:active {
+    transform: translateY(0); /* Remove the lift on click */
+}
+
+/* Optional: Placeholder text color */
+#search-input::placeholder {
+    color: #999;
+}
+
+
+/*INPUT STYLE ENDS*/
+
+#releases h1{
+    color: #fff;
+    font-size: 36px;
+    margin-left: 5%;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#releases_results{
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15% 15%;
+    width:90%;
+    max-width:1900px;
+    margin: auto;
+    grid-gap: 90px;
+}
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #151616;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); }
+
+/* Image styling */
+.card-img-top {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Title styling */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff; 
+  
+}
+
+/* Artist name styling */
+.card-text {
+    font-size: 1rem;
+    color: #b0b0b0; 
+    margin-bottom: 15px;
+    font-style: italic;
+}
