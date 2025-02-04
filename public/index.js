@@ -1,9 +1,9 @@
 // Send request to backend
 
-let resultArray = localStorage.getItem('resultArray') ? localStorage.getItem('resultArray') : [];
+let resultArray = localStorage.getItem('results') ?  JSON.parse(localStorage.getItem('results')) : [];
+
 const releases_results = document.querySelector("#releases_results");
 const updateUI = async () => {
-    console.log(resultArray.length)
     if(resultArray.length > 0){
         resultArray.forEach(item => {
             releases_results.innerHTML += `
@@ -21,16 +21,16 @@ const updateUI = async () => {
 }
 const getAlbums =  () => {  
     //Check do we have results already
-    if(localStorage.getItem('results')!== undefined || localStorage.getItem('results')){
+    if(localStorage.getItem('results') !== undefined && localStorage.getItem('results')){
         updateUI();
-    }
-    //If not results, check for token
-    if(localStorage.getItem('token') === undefined || localStorage.getItem('token') === null) {
-         getTokens();
     }
 
     else{
-
+        console.log("Make Call");
+    //If not results, check for token
+    if(localStorage.getItem('token') === undefined || localStorage.getItem('token') === null) {
+        getTokens();
+    }
          fetch("/getAlbums", {
              headers: {
                  'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -63,7 +63,8 @@ const getTokens = async () => {
     });
 }
 
-getAlbums();
+    getAlbums();
+
 
 
 

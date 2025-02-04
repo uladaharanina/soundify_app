@@ -1,12 +1,78 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 body{
 
     background: #232526;  
     font-family: Inter, sans-serif;
+
 }
 /*HEADER*/
 
-/*INPUT STYLE*/
+header{
+    background: hsl(0, 0%, 11%);  
+    margin: 0;
+    padding: 20px 0;
+    top:0;
+    color: white;
+    display: flex;
+    width:100%;
+    z-index: 10;
+    position: sticky;
+    align-items: center;
+}
 
+header p{
+    font-size: 2em;
+    font-weight: 600;
+    margin-right: 35%;
+    margin-left: 6%;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav ul li{
+    list-style: none;
+    font-size: 1.1em;
+    margin-right: 20px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+nav ul li img{
+    display: block;
+    width: 25px;
+    margin: auto;
+    height: 25px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+nav ul li:hover{
+    transform: scale(1.1);
+}
+nav ul li a:hover{
+    transition: all 0.3s ease;
+}
+
+/*INPUT STYLE*/
+#search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 20px;
+    margin-top: 5em;
+    margin-left: 6em;
+}
 #search-container div{
     display: flex;
     align-items: center;
@@ -16,22 +82,18 @@ body{
     width: 25px;
     height: 25px;
     margin-right: 10px;
-    z-index: 10;
+    z-index: 9;
     position: relative;
     left: 14%;
 }
-#search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-}
+
 
 #search-input {
     padding: 10px 15px;
     padding-left: 50px;
     font-size: 16px;
     border: 2px solid #ddd;
+    background-color: #dadada;
     border-radius: 10px;
     width: 250px;
     transition: all 0.3s ease;
@@ -56,12 +118,13 @@ body{
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.5s ease, transform 0.4s ease;
 }
 
 #search-button:hover {
-    background-color: #e85a3e; /* Darker shade on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    background-color: #e85a3e; 
+    transform: translateY(-2px); 
+    transform: scale(1.1);
 }
 
 #search-button:active {
@@ -78,8 +141,9 @@ body{
 
 #releases h1{
     color: #fff;
-    font-size: 36px;
-    margin-left: 5%;
+    font-size: 28px;
+    margin-left: 6%;
+    margin-top: 3%;
     text-align: left;
     margin-bottom: 30px;
 }
