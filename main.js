@@ -2,13 +2,13 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
-
+app.use(express.json());
 app.use(express.static('public'))
 
 const port = 5173
 
 //Send API to Spotify
-app.get('/getAlbums', async (req, res) => {
+app.get('/api/getAlbums', async (req, res) => {
 
     const token = JSON.stringify(req.headers);
    try{
@@ -26,7 +26,7 @@ app.get('/getAlbums', async (req, res) => {
    }
 })
 
-app.get('/getTokens', async (req, res) => { 
+app.get('/api/getTokens', async (req, res) => { 
 
     const result = await fetch("https://accounts.spotify.com/api/token", {
         method: 'POST',
@@ -41,52 +41,31 @@ app.get('/getTokens', async (req, res) => {
     res.json(json);
 })
 
+//Get Artis
+
+app.post('/api/search', async (req, res) => {
+  
+    const token = JSON.stringify(req.headers);
+    const item = req.body.searchItem;
+
+   try{
+        await fetch(`https://api.spotify.com/v1/search?q=${item}&type=artist%2Calbum%2Ctrack&limit=10`, {
+        method: 'GET', 
+        headers: {
+            'Authorization': token,
+        }})
+        .then((response) => response.json())
+        .then((data) => {
+            res.json(data);
+        })
+   }
+   catch(err){
+    console.error(err);
+    res.status(500).send('Server Error');
+   }  
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-/*
-const searchInput = document.querySelector("#search-input");
-console.log(process.env);
-const searchForItem = async (e) => {
-
-    e.preventDefault();
-
-    if(searchInput != null){
-
-        const result = await fetch("https://api.spotify.com/v1/search");
-        const data = await result.json();
-
-    }
-}
-
-    //Get album
-    const getSeveralAlbums  = async () => {
-
-        console.log("data");
-        const result = await fetch("https://api.spotify.com/v1/albums", {
-            headers: {
-                'Authorization': `Bearer ${process.env.API_KEY}`
-            }
-        });
-        const data = await result.json();
-        res.send(data)
-
-    }
-
-//Show popular songs
-
-const getSeveralAlbums  = async () => {
-
-    console.log("data");
-    const result = await fetch("https://api.spotify.com/v1/albums", {
-        headers: {
-            'Authorization': `Bearer ${envaccess_token}`
-        }
-    });
-    const data = await result.json();
-    console.log(data);
-}
-
-getSeveralAlbums();
-*/

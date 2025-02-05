@@ -71,7 +71,7 @@ nav ul li a:hover{
     justify-content: flex-start;
     margin: 20px;
     margin-top: 5em;
-    margin-left: 6em;
+    margin-left: 4em;
 }
 #search-container div{
     display: flex;
@@ -139,7 +139,7 @@ nav ul li a:hover{
 
 /*INPUT STYLE ENDS*/
 
-#releases h1{
+ h1{
     color: #fff;
     font-size: 28px;
     margin-left: 6%;
@@ -195,4 +195,73 @@ nav ul li a:hover{
     color: #b0b0b0; 
     margin-bottom: 15px;
     font-style: italic;
+}
+
+
+/*SEARCH RESULT*/
+#search_results img{
+    width:100px;
+    height:100px;
+    object-fit: contain;
+}
+h6{
+    color: #fff;
+    font-size: 1.5em;
+    margin-left: 6%;
+    margin-top: 1%;
+    text-align: left;
+    margin-bottom: 30px;
+}
+/* Basic layout and spacing */
+.track-grid {
+    display: grid;
+    max-width: 1900px;
+    width:90%;
+    grid-template-columns: repeat(5, 0.8fr); /* Creates 5 equal-width columns */
+    gap: 20px; /* Space between items */
+    margin-top: 20px;
+    margin: auto;
+
+}
+
+.track-item {
+    background-color: #1c1c1c;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.track-item p {
+    font-size: 1em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.track-item .go-to-track {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #FF512F;  
+    background: -webkit-linear-gradient(to left, #DD2476, #FF512F);  
+    background: linear-gradient(to left, #DD2476, #FF512F);     color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.track-item .go-to-track:hover {
+    background-color: #0056b3;
+}
+
+/* Responsiveness: For smaller screens, stack the grid items */
+@media (max-width: 1200px) {
+    .track-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+    }
+}
+
+@media (max-width: 900px) {
+    .track-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on smaller screens */
+    }
 }
