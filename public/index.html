@@ -27,8 +27,8 @@
     <main>
         <section id="search-container">
             <div>
-                <img src="./search.png" alt="search icon"/>
-                <input type="text" id="search-input" placeholder="Any Song.." onchange="updateInput(event)">
+                <img src="./search.png" alt="search icon"  onClick="findItem(event)"/>
+                <input type="text" id="search-input" placeholder="Any Song.." onchange="updateInput(event)" >
             </div>
             <button id="search-button" onClick="findItem(event)">Search</button>
         </section>

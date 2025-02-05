@@ -12,6 +12,7 @@ body{
 }
 /*HEADER*/
 
+@media screen and (min-width: 1025px) {
 header{
     background: hsl(0, 0%, 11%);  
     margin: 0;
@@ -200,8 +201,10 @@ nav ul li a:hover{
 
 /*SEARCH RESULT*/
 #search_results img{
-    width:100px;
+    width:100%;
+    display: block;
     height:100px;
+    margin: 20px auto;
     object-fit: contain;
 }
 h6{
@@ -229,7 +232,9 @@ h6{
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: center;    
+    transition: all 2s ease-in-out;
+
 }
 
 .track-item p {
@@ -238,7 +243,7 @@ h6{
     margin-bottom: 10px;
 }
 
-.track-item .go-to-track {
+.go-to-track {
     display: inline-block;
     padding: 8px 12px;
     background: #FF512F;  
@@ -249,19 +254,295 @@ h6{
     transition: background-color 0.3s ease;
 }
 
-.track-item .go-to-track:hover {
-    background-color: #0056b3;
+
+.track-item:hover {
+    transform: scale(1.1);
+    transition: all 0.6s ease-in-out;
 }
 
-/* Responsiveness: For smaller screens, stack the grid items */
-@media (max-width: 1200px) {
+}
+/* Tablets */
+@media (max-width: 1024px) {
+
+    header p {
+        font-size: 1.8em;
+        margin-right: 20%;
+        margin-left: 5%;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        font-size: 1em;
+        margin-right: 15px;
+    }
+
+    #search-container {
+        margin-left: 2em;
+        margin-top: 3em;
+    }
+
+    #search-input {
+        width: 200px;
+        font-size: 14px;
+    }
+
+    #search-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    #releases_results {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 60px;
+    }
+
+    .card-img-top {
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
     .track-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+
+    .track-item p {
+        font-size: 0.9em;
     }
 }
 
-@media (max-width: 900px) {
+/* Phones */
+@media (max-width: 560px) {
+
+    body{
+        border:2px solid red;
+    }
+    header{
+        background: hsl(0, 0%, 11%);  
+        margin: 0;
+        padding: 20px 0;
+        top:0;
+        color: white;
+        display: flex;
+        width:100%;
+        z-index: 10;
+        position: sticky;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    header p{
+        font-size: 2em;
+        font-weight: 600;
+
+    }
+    
+    nav ul{
+        display: flex;
+    }
+    
+    nav ul li{
+        list-style: none;
+        font-size: 1.1em;
+        margin-right: 20px;
+        display: block;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    
+    }
+    
+    nav ul li img{
+        display: block;
+        width: 25px;
+        margin: auto;
+        height: 25px;
+    }
+    
+    nav ul li a{
+        text-decoration: none;
+        color: white;
+    }
+    nav ul li:hover{
+        transform: scale(1.1);
+    }
+    nav ul li a:hover{
+        transition: all 0.3s ease;
+    }
+    
+    /*INPUT STYLE*/
+    #search-container {
+        display: block;
+        margin: 0;
+        margin-top: 3em;
+        margin-bottom: 2em;
+        width: 100%;
+    }
+    #search-container div{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        width: 90%;
+    }
+    
+    #search-container div img{
+        width: 25px;
+        height: 25px;
+        margin-right: 20px;
+        margin-left: 10px;
+        z-index: 9;
+        position: absolute;
+    }
+    
+    
+    #search-input {
+        padding: 5px 15px;
+        padding-left: 50px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        background-color: #dadada;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        outline: none;
+        width: 100%;
+    }
+    
+    #search-input:focus {
+        border-color: #ff7f50; 
+        transform: scale(1.04);
+        box-shadow: 0 0 10px rgba(255, 127, 80, 0.3);
+    }
+    
+    #search-button {
+     display: none;
+    }
+
+
+    /*INPUT STYLE ENDS*/
+    
+     h1{
+        color: #fff;
+        font-size: 24px;
+        margin-left: 6%;
+        margin-top: 3%;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    #releases{
+        width: 100%;
+    }
+    #releases_results{
+        display: block;
+        width:100%;
+        max-width:750px;
+        margin: auto;
+
+    }
+    .card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 20px auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: #151616;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .card:hover {
+        transform: translateY(-10px); 
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); }
+    
+    /* Image styling */
+    .card-img-top {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+    }
+    
+    .card-body {
+        padding: 20px;
+    }
+    
+    /* Title styling */
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #ffffff; 
+      
+    }
+    
+    /* Artist name styling */
+    .card-text {
+        font-size: 1rem;
+        color: #b0b0b0; 
+        margin-bottom: 15px;
+        font-style: italic;
+    }
+    
+    
+    /*SEARCH RESULT*/
+    #search_results img{
+        width:100%;
+        display: block;
+        height:100px;
+        margin: 20px auto;
+        object-fit: contain;
+    }
+    h6{
+        color: #fff;
+        font-size: 1.5em;
+        margin-left: 6%;
+        margin-top: 1%;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    /* Basic layout and spacing */
     .track-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns on smaller screens */
+        display: block;
+        margin-top: 20px;
+        margin: auto;
+    
+    }
+    
+    .track-item {
+        background-color: #1c1c1c;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;    
+        transition: all 2s ease-in-out;
+    
+    }
+    
+    .track-item p {
+        font-size: 1em;
+        color: white;
+        margin-bottom: 10px;
+    }
+    
+    .go-to-track {
+        display: inline-block;
+        padding: 8px 12px;
+        background: #FF512F;  
+        background: -webkit-linear-gradient(to left, #DD2476, #FF512F);  
+        background: linear-gradient(to left, #DD2476, #FF512F);     color: white;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    
+    .track-item:hover {
+        transform: scale(1.1);
+        transition: all 0.6s ease-in-out;
     }
 }
+

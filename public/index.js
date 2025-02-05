@@ -8,6 +8,8 @@ const searchInput = document.querySelector('#search-input');
 
 const releases_results = document.querySelector("#releases_results");
 
+
+
 //Display results of fetch
 const updateUI = async () => {
     if(resultArray.length > 0){
